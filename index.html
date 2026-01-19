@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>paul aibeo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<!-- ADD NEXT IN GPT: i have adjusted alot of the css now and its looking great. i want you too a add a simple load in animation on pretty much everything when you scroll. i also want you to add a custom cursor. make the cursor a small black dot that expands when hovering a project. give it to me in a way that i can paste it in.-->
+  
+<!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="contact">
+      +47 938 12 325 | paul.aibeo@gmail.com
+    </div>
+    <div class="menu-dots">● ●</div>
+  </header>
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="intro">
+      <p class="name">paul aibeo</p>
+
+      <img
+        class="portrait"
+        src="assets/portrait.png"
+        alt="Portrait of Paul Aibeo"
+        loading="lazy"
+      />
+
+      <p class="description">
+        based in oslo<br />
+        <br />
+        film<br />
+        branded video<br />
+        music production<br />
+        3d modelling
+      </p>
+    </section>
+
+    <!-- SHOWREEL -->
+    <section class="showreel reveal">
+      <p class="section-label">(showreel)</p>
+
+      <div class="video-box reveal" data-vimeo-id="1155778524">
+        <video
+          class="preview reveal"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/showreel.mp4"
+        ></video>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+      <p class="section-label">(selected projects)</p>
+
+      <div class="video-box vertical reveal" data-vimeo-id="123456789">
+        <video
+          class="preview"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/zenit-preview.mp4"
+        ></video>
+      </div>
+            <!-- 16:9 Horizontal Project -->
+      <div class="video-box project-16x9 reveal" data-vimeo-id="123456789">
+        <video
+          class="preview"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/kjetil-preview.mp4"
+        ></video>
+      </div>
+
+      <!-- 4:3 Horizontal Project -->
+      <div class="video-box project project-4x3 reveal" data-vimeo-id="123456789">
+        <video
+          class="preview"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/brakhage-preview.mp4"
+        ></video>
+        </video>
+      </div>
+      
+      <!--16:9-->
+      <div class="video-box project-16x9 reveal" data-vimeo-id="123456789">
+        <video
+          class="preview"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/musical-preview.mp4"
+        ></video>
+      </div>
+      
+      <div class="video-box project-16x9 reveal" data-vimeo-id="123456789">
+        <video
+          class="preview"
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-src="assets/previews/ikkedra-preview.mp4"
+        ></video>
+      </div>
+
+
+    </section>
+
+    <section class="about-me">
+      <p class="about me title">(about me)</p>
+
+      <p class="about me text">
+        Studying Film and Tv at Høyskolen Kristiania<br />
+        Social media manager, JK Associates<br />
+      </p>
+    </section>
+
+    <p class="freelance">available for freelance work</p>
+
+  </main>
+
+  <!-- VIDEO MODAL -->
+  <div id="video-modal"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .courier-prime-regular {
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .courier-prime-bold {
+    font-family: "Courier Prime", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .courier-prime-regular-italic {
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .courier-prime-bold-italic {
+    font-family: "Courier Prime", monospace;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+
+  body {
+    margin: 0;
+    font-family: "Courier Prime", monospace;
+    background: white;
+    color: black;
+  }
+  
+  /* TOP BAR */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    background: white;
+    z-index: 10;
+  }
+  
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 10%;
+    text-align: center;
+  }
+  
+  /* INTRO */
+  .intro {
+    margin-bottom: 260px;
+  }
+  
+  .name {
+    margin-bottom: 80px;
+    font-size: 16px;
+  }
+  
+  .portrait {
+    width: 180px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 40px auto;
+    margin-bottom: 80px;
+  }
+  
+  .description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* SECTIONS */
+  .section-label {
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  
+  .section-sub {
+    font-size: 14px;
+    margin-bottom: 120px;
+  }
+  
+  /* VIDEO BOXES */
+  .video-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 10px auto 160px auto;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .video-box.vertical {
+    width: 280px;
+    aspect-ratio: 9 / 16;
+    margin-bottom: 10px;
+  }
+  /* Aspect ratio variants */
+
+  .project-16x9 {
+    aspect-ratio: 16 / 9;
+    width: 70%;
+    Margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .project-4x3 {
+    aspect-ratio: 4 / 3;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    width: 50%;
+  }
+
+  .about-me{
+    margin-top: 120px;
+  }
+
+  @media (max-width: 768px) {
+  .project-4x3 {
+    width: 65%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    height: auto;
+    padding: 0px;
+  }
+
+  @media (max-width: 768px) {
+    .project-16x9 {
+      width: 100%;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      height: auto;
+      padding: 0px;
+  }
+  }
+}
+
+
+/* Video fill */
+.project video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+  
+  .preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .freelance {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+  
+  /* HOVER (desktop only) */
+  @media (hover: hover) {
+    .video-box:hover .preview {
+      opacity: 0.85;
+    }
+  }
+  
+  /* MODAL */
+  #video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  #video-modal.active {
+    display: flex;
+  }
+  
+  #video-modal iframe {
+    width: 80%;
+    height: 80%;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+  
+    main {
+      padding-top: 100px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  
+    .intro {
+      margin-bottom: 120px;
+    }
+    .portrait {
+      margin-bottom: 70px;
+    }
+    .projects{
+      margin-top: 120px;
+      margin-bottom: 120px;
+    }
+  
+    .name {
+      margin-bottom: 60px;
+    }
+  
+    .video-box {
+      margin-bottom: 10px;
+    }
+  
+    .video-box.vertical {
+      width: 60%;
+      aspect-ratio: 9 / 16;
+    }
+  
+    .section-sub {
+      margin-bottom: 80px;
+    }
+  
+    #video-modal iframe {
+      width: 95%;
+      height: 60%;
+    }
+/* ===== Scroll Reveal ===== */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+  }
+
+  .reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  }
+  
+
