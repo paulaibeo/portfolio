@@ -77,3 +77,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach(el => observer.observe(el));
 });
+
+const videomodal = document.getElementById("video-modal");
+const videocontainer = document.getElementById("video-container");
+
+document.querySelectorAll(".project").forEach(project => {
+  project.addEventListener("click", () => {
+    const type = project.dataset.type;
+    const src = project.dataset.src;
+
+    container.innerHTML = "";
+
+    if (type === "mp4") {
+      const video = document.createElement("video");
+      video.src = src;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      container.appendChild(video);
+    }
+
+    if (type === "youtube") {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${src}?rel=0&modestbranding=1`;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      container.appendChild(iframe);
+    }
+
+    videomodal.classList.add("active");
+  });
+});
+
+// Close modal
+videomodal.addEventListener("click", (e) => {
+  if (e.target === videomodal) closeModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+function closeModal() {
+  videomodal.classList.remove("active");
+  container.innerHTML = "";
+}
