@@ -127,6 +127,7 @@
 
   .about-me{
     margin-top: 120px;
+    size: 14px;
   }
 
   @media (max-width: 768px) {
