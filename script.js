@@ -1,125 +1,107 @@
-const videoBoxes = document.querySelectorAll('.video-box');
-const previews = document.querySelectorAll('.preview');
-const modal = document.getElementById('video-modal');
+const projects = document.querySelectorAll(".project");
+const modal = document.getElementById("video-modal");
 
-/* ---------- LAZY LOAD + AUTOPLAY PREVIEWS ---------- */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+/* ---------- AUTOPLAY PREVIEWS ---------- */
+
+const previews = document.querySelectorAll(".preview");
+
+const previewObserver = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
       const video = entry.target;
-      const src = video.dataset.src;
 
-      if (src && !video.src) {
-        video.src = src;
-        video.load();
+      if (entry.isIntersecting) {
+
         video.play().catch(() => {});
+
+      } else {
+
+        video.pause();
+
       }
 
-      observer.unobserve(video);
-    }
-  });
-}, {
-  rootMargin: '200px'
+    });
+
+  },
+  {
+    threshold: 0.3
+  }
+);
+
+previews.forEach(video => {
+  previewObserver.observe(video);
 });
 
-previews.forEach(video => observer.observe(video));
+/* ---------- MODAL ---------- */
 
-/* ---------- VIDEO MODAL ---------- */
 function closeModal() {
-  modal.classList.remove('active');
-  modal.innerHTML = '';
+
+  modal.classList.remove("active");
+
+  modal.innerHTML = "";
+
 }
 
-videoBoxes.forEach(box => {
-  box.addEventListener('click', () => {
-    const vimeoId = box.dataset.vimeoId;
+projects.forEach(project => {
+
+  project.addEventListener("click", () => {
+
+    const youtubeId = project.dataset.youtubeId;
 
     modal.innerHTML = `
       <iframe
-        src="https://player.vimeo.com/video/${vimeoId}?autoplay=1"
-        frameborder="0"
-        allow="autoplay; fullscreen"
+        src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     `;
 
-    modal.classList.add('active');
+    modal.classList.add("active");
+
   });
+
 });
 
-/* Click outside video closes */
-modal.addEventListener('click', closeModal);
+/* CLOSE */
 
-/* ESC key closes */
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && modal.classList.contains('active')) {
+modal.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", event => {
+
+  if (event.key === "Escape") {
+
     closeModal();
+
   }
+
 });
 
-/* ---------- SCROLL REVEAL ---------- */
-document.addEventListener("DOMContentLoaded", () => {
-  const reveals = document.querySelectorAll(".reveal");
+/* ---------- REVEAL ---------- */
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15
-    }
-  );
+const reveals = document.querySelectorAll(".reveal");
 
-  reveals.forEach(el => observer.observe(el));
+const revealObserver = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("reveal-active");
+
+      revealObserver.unobserve(entry.target);
+
+    });
+
+  },
+  {
+    threshold: 0.15
+  }
+);
+
+reveals.forEach(element => {
+  revealObserver.observe(element);
 });
-
-const videomodal = document.getElementById("video-modal");
-const videocontainer = document.getElementById("video-container");
-
-document.querySelectorAll(".project").forEach(project => {
-  project.addEventListener("click", () => {
-    const type = project.dataset.type;
-    const src = project.dataset.src;
-
-    container.innerHTML = "";
-
-    if (type === "mp4") {
-      const video = document.createElement("video");
-      video.src = src;
-      video.controls = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      container.appendChild(video);
-    }
-
-    if (type === "youtube") {
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube.com/embed/${src}?rel=0&modestbranding=1`;
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      container.appendChild(iframe);
-    }
-
-    videomodal.classList.add("active");
-  });
-});
-
-// Close modal
-videomodal.addEventListener("click", (e) => {
-  if (e.target === videomodal) closeModal();
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
-});
-
-function closeModal() {
-  videomodal.classList.remove("active");
-  container.innerHTML = "";
-}

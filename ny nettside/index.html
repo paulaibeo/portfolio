@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <title>paul aibeo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="top-bar">
+  <div class="contact">+47 938 12 325 | paul.aibeo@gmail.com</div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <section class="intro reveal">
+    <p class="name">paul aibeo</p>
+
+    <img class="portrait" src="assets/portrait.jpg" alt="Portrait">
+
+    <p class="description">
+      based in oslo<br><br>
+      film<br>
+      branded video<br>
+      music production<br>
+      3d modelling
+    </p>
+  </section>
+
+  <!-- SHOWREEL (VIMEO) -->
+  <section class="reveal">
+    <div class="video-box project-16x9"
+      data-type="vimeo"
+      data-id="1155778524">
+      <video class="preview" muted loop playsinline preload="none"
+        data-src="assets/previews/fixed-showreel-preview.mp4"></video>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects reveal">
+
+    <!-- Vimeo -->
+    <div class="video-box project-16x9"
+      data-type="vimeo"
+      data-id="1156267288">
+      <video class="preview" muted loop playsinline preload="none"
+        data-src="assets/previews/fixed-kjetil-preview.mp4"></video>
+    </div>
+
+    <!-- YouTube -->
+    <div class="video-box project-16x9"
+      data-type="youtube"
+      data-id="dQw4w9WgXcQ">
+      <video class="preview" muted loop playsinline preload="none"
+        data-src="assets/previews/youtube-preview.mp4"></video>
+    </div>
+
+  </section>
+
+  <p class="freelance reveal">available for freelance work</p>
+
+</main>
+
+<!-- VIDEO MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-content">
+    <button class="modal-close">×</button>
+    <div class="modal-video"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
